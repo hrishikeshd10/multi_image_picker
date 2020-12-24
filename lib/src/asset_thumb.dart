@@ -84,11 +84,13 @@ class _AssetThumbState extends State<AssetThumb> {
     if (_thumbData == null) {
       return spinner;
     }
-    return Image.memory(
-      _thumbData.buffer.asUint8List(),
-      key: ValueKey(asset.identifier),
-      fit: BoxFit.cover,
-      gaplessPlayback: true,
+    return CircleAvatar(
+      backgroundImage: Image.memory(
+        _thumbData.buffer.asUint8List(),
+        key: ValueKey(asset.identifier),
+        fit: BoxFit.cover,
+        gaplessPlayback: true,
+      ).image,
     );
   }
 }
